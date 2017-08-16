@@ -27,3 +27,15 @@ let y: Color = Color.Green;
 let someValue:any = "test";
 let strlength: number = (someValue as string).length;
 let strlength2:number = (<string>someValue).length;
+
+//泛型
+/*
+* 泛型用来规定两个变量或者数据的类型是相同的，但是这两个数据的具体类型是不知道的，如果使用any会造成两个数据类型的不同，使用具体的又不满足需求
+* 泛型在函数中就是一个类型变量
+* 泛型函数，泛型类，泛型接口
+*
+*/
+function identity<T>(arg: T): T {
+	return arg;
+}
+// 这就保证了函数identity的输入参数类型和返回类型是同一个类型的
