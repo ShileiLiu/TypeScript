@@ -69,7 +69,9 @@ class testClass<T> {
 let tt = new testClass<number>();
 tt.zeroValue = 22;
 tt.add(2,3);
-
+function created<T>(c:{new():T}): T{
+	return new c();
+}
 interface lengthMust{
 	length:number;
 }
