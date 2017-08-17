@@ -69,7 +69,9 @@ class testClass<T> {
 let tt = new testClass<number>();
 tt.zeroValue = 22;
 tt.add(2,3);
-
+function created<T>(c:{new():T}): T{
+	return new c();
+}
 interface lengthMust{
 	length:number;
 }
@@ -79,3 +81,23 @@ function loggingIdentity<T extends lengthMust>(arg: T): T {
 	return arg;
 }
 //泛型约束
+
+
+//ts 类
+class a{
+	constructor(){
+
+	}
+	static b(){
+		//静态方法
+	}
+	public c(){
+		//公共方法
+	}
+	private d(){
+		//私密方法
+	}
+	protected e(){
+		//派生类可以使用
+	}
+}
