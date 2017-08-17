@@ -81,3 +81,23 @@ function loggingIdentity<T extends lengthMust>(arg: T): T {
 	return arg;
 }
 //泛型约束
+
+
+//ts 类
+class a{
+	constructor(){
+
+	}
+	static b(){
+		//静态方法
+	}
+	public c(){
+		//公共方法
+	}
+	private d(){
+		//私密方法
+	}
+	protected e(){
+		//派生类可以使用
+	}
+}
