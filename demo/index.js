@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //布尔值
 var isDone = true;
 //数字
@@ -77,13 +87,51 @@ var testClass = (function () {
 var tt = new testClass();
 tt.zeroValue = 22;
 tt.add(2, 3);
+function created(c) {
+    return new c();
+}
 function loggingIdentity(arg) {
     console.log(arg.length); // Error: T doesn't have .length
     return arg;
 }
-function getProperty(obj, key) {
-    return obj[key];
-}
-var x2 = { a: 1, b: 2, c: 3, d: 4 };
-getProperty(x, "a"); // okay
-getProperty(x, "m");
+//泛型约束
+//ts 类
+//默认为public,
+//当成员被标记成private时，它就不能在声明它的类的外部访问
+//protected修饰符与private修饰符的行为很相似，但有一点不同，protected成员在派生类中仍然可以访问
+var a = (function () {
+    function a() {
+    }
+    a.b = function (str) {
+        //静态方法
+    };
+    a.prototype.c = function () {
+        //公共方法
+    };
+    return a;
+}());
+//类使用extends进行继承
+var xxx = (function (_super) {
+    __extends(xxx, _super);
+    function xxx() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return xxx;
+}(a));
+var testClass2 = (function () {
+    function testClass2() {
+    }
+    testClass2.prototype.c = function () {
+    };
+    return testClass2;
+}());
+var testObj = new testClass2();
+var Animal = (function () {
+    function Animal() {
+    }
+    return Animal;
+}());
+//类继承接口使用implements
+//接口继承类使用extends
+//接口继承接口使用 extends
+//类继承类使用extends

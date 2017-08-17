@@ -84,20 +84,47 @@ function loggingIdentity<T extends lengthMust>(arg: T): T {
 
 
 //ts 类
+//默认为public,
+//当成员被标记成private时，它就不能在声明它的类的外部访问
+//protected修饰符与private修饰符的行为很相似，但有一点不同，protected成员在派生类中仍然可以访问
 class a{
-	constructor(){
-
-	}
-	static b(){
+	name:string
+	
+	static b(str:string){ 
 		//静态方法
 	}
 	public c(){
 		//公共方法
 	}
-	private d(){
-		//私密方法
-	}
-	protected e(){
-		//派生类可以使用
+}
+//类使用extends进行继承
+class xxx extends a{
+
+}
+interface testInter {
+	
+}
+interface testInter2 extends testInter{
+	
+}
+interface testInter3 extends a{
+	
+}
+class testClass2 implements testInter3{
+	name:"test";
+	public c(){
+		
 	}
 }
+let testObj = new testClass2();
+
+//类继承接口使用implements
+//接口继承类使用extends
+//接口继承接口使用 extends
+
+abstract class Animal implements testInter{//抽象类，抽象类一般不会直接实例化，而是
+	abstract c(){}//抽象方法只能在派生类中实现，
+	
+}
+//抽象类和抽象方法和接口类似，都不实现具体的需求，都是在派生类中实现具体的方法体，都是只提供类的的必须属性
+
