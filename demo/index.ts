@@ -122,9 +122,20 @@ let testObj = new testClass2();
 //接口继承类使用extends
 //接口继承接口使用 extends
 
-abstract class Animal implements testInter{//抽象类，抽象类一般不会直接实例化，而是
-	abstract c(){}//抽象方法只能在派生类中实现，
-	
+abstract class testAnimal{//抽象类，抽象类一般不会直接实例化，而是
+	abstract ook():void//抽象方法只能在派生类中实现，//不能有{}作为函数体。只能说这个是一个方法
+}
+class testClass3 extends testAnimal{
+	ook(){console.log(123)}
 }
 //抽象类和抽象方法和接口类似，都不实现具体的需求，都是在派生类中实现具体的方法体，都是只提供类的的必须属性
 
+//
+//内部模块可以使用命名空间  namespace
+namespace validata{
+	let testObj:string = "123"
+}
+
+declare let $:any//加了declare就知道$来自第三方，类型是any所以就忽略了$，这样使用jquery就不会报错了
+//这样使用第三方的东西就会提示$没有查找到
+$.ajax()

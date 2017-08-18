@@ -126,12 +126,28 @@ var testClass2 = (function () {
     return testClass2;
 }());
 var testObj = new testClass2();
-var Animal = (function () {
-    function Animal() {
-    }
-    return Animal;
-}());
 //类继承接口使用implements
 //接口继承类使用extends
 //接口继承接口使用 extends
-//类继承类使用extends
+var testAnimal = (function () {
+    function testAnimal() {
+    }
+    return testAnimal;
+}());
+var testClass3 = (function (_super) {
+    __extends(testClass3, _super);
+    function testClass3() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    testClass3.prototype.ook = function () { console.log(123); };
+    return testClass3;
+}(testAnimal));
+//抽象类和抽象方法和接口类似，都不实现具体的需求，都是在派生类中实现具体的方法体，都是只提供类的的必须属性
+//
+//内部模块可以使用命名空间  namespace
+var validata;
+(function (validata) {
+    var testObj = "123";
+})(validata || (validata = {}));
+//这样使用第三方的东西就会提示$没有查找到
+$.ajax();
