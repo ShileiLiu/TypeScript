@@ -91,7 +91,6 @@ function created(c) {
     return new c();
 }
 function loggingIdentity(arg) {
-    console.log(arg.length); // Error: T doesn't have .length
     return arg;
 }
 //泛型约束
@@ -139,7 +138,7 @@ var testClass3 = (function (_super) {
     function testClass3() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    testClass3.prototype.ook = function () { console.log(123); };
+    testClass3.prototype.ook = function () { };
     return testClass3;
 }(testAnimal));
 //抽象类和抽象方法和接口类似，都不实现具体的需求，都是在派生类中实现具体的方法体，都是只提供类的的必须属性
@@ -151,3 +150,8 @@ var validata;
 })(validata || (validata = {}));
 //这样使用第三方的东西就会提示$没有查找到
 $.ajax();
+//Symbols
+//declare let Symbol:any;
+//Symbol是TS和ECMAscript2015支持的原生类型。
+var sym2 = Symbol();
+//let sym:symbol = Symbol("key");

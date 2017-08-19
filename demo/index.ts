@@ -77,7 +77,6 @@ interface lengthMust{
 }
 
 function loggingIdentity<T extends lengthMust>(arg: T): T {
-	console.log(arg.length);  // Error: T doesn't have .length
 	return arg;
 }
 //泛型约束
@@ -126,7 +125,7 @@ abstract class testAnimal{//抽象类，抽象类一般不会直接实例化，�
 	abstract ook():void//抽象方法只能在派生类中实现，//不能有{}作为函数体。只能说这个是一个方法
 }
 class testClass3 extends testAnimal{
-	ook(){console.log(123)}
+	ook(){}
 }
 //抽象类和抽象方法和接口类似，都不实现具体的需求，都是在派生类中实现具体的方法体，都是只提供类的的必须属性
 
@@ -139,3 +138,25 @@ namespace validata{
 declare let $:any//加了declare就知道$来自第三方，类型是any所以就忽略了$，这样使用jquery就不会报错了
 //这样使用第三方的东西就会提示$没有查找到
 $.ajax()
+
+
+//2017.8.19
+//声明合并
+
+//接口合并
+namespace box{
+	interface box{
+		width:number
+		height:number
+	}
+	interface box{
+		scale:number
+	}
+	//接口的非函数的成员必须是唯一的。 如果两个接口中同时声明了同名的非函数成员编译器则会报错。
+	//对于同名函数成员相当于是后面的重载前面的，后面的有较高的优先级
+}
+//Symbols
+//declare let Symbol:any;
+//Symbol是TS和ECMAscript2015支持的原生类型。
+let sym2 = Symbol();
+//let sym:symbol = Symbol("key");
