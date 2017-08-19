@@ -158,5 +158,38 @@ namespace box{
 //Symbols
 //declare let Symbol:any;
 //Symbol是TS和ECMAscript2015支持的原生类型。
+//唯一存在的值，可以作为对象的键使用，避免重复键的出现
+
 let sym2 = Symbol();
 //let sym:symbol = Symbol("key");
+
+//补充ES6
+//Symbol('KEY')和Symbol.for('KEY')两种模式不同
+//前一种新建一个symbol，但是不注册在Symbol队列里。无法使用Symbol.keyFor查找到
+//即  let s1 = Symbol('key') Symbol.keyFor(s1) undefined;
+//后一种新建Symbol，且注册在Symbol队列里，可以使用Symbol.keyFor查找到
+//即let s2 = Symbol.for('key');  Symbol.keyFor(s2)  'key';
+
+/*
+ *模块
+ * export导出  模块导出可以导出对象，类，接口，函数，变量
+ * 导出使用as重命名
+ * export { Zip as main };即导出Zip使用main重命名，导出的内容的名字就是main
+ * 
+ * default导出，即默认导出
+ * 
+ * 同理，import也可用重命名  import a as b from '../c';即从c中导入a但是存放的变量是b
+ * 
+ * import * as vali from "./ZipCodeValidator";将整个模块以vali的名字导入，
+ * 直接导入模块存在副作用的 例如 import 'index.js';
+ * 
+ * 
+ * 
+ * export = 和 import = require()
+ *	CommonJS和AMD都有一个exports对象的概念，它包含了一个模块的所有导出内容。
+ * 若要导入一个使用了export =的模块时，必须使用TypeScript提供的特定语法import module = require("module")。
+ * 
+ * 
+ * */
+export default sym2;
+
