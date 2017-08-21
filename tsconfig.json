@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {//默认配置
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true
+    },
+    "include":[//要编译的ts文件
+    	"demo/*"
+    ],
+    "extends":""//从其他文件继承配置
+}
