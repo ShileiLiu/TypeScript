@@ -193,3 +193,4 @@ let sym2 = Symbol();
  * */
 export default sym2;
 
+三斜线指令是包含单个XML标签的单行注释。 注释的内容会做为编译器指令使用
